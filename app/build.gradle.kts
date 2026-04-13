@@ -17,6 +17,8 @@ android {
         versionCode = 1
         versionName = "1.0"
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+
+        buildConfigField("String", "DUMMY_BASE_URL", "\"https://dummyjson.com/\"")
     }
     buildTypes {
         release {
@@ -32,6 +34,7 @@ android {
     }
     buildFeatures {
         compose = true
+        buildConfig = true
     }
     testFixtures {
         enable = true
@@ -55,12 +58,26 @@ dependencies {
     implementation(libs.navigation.compose)
     implementation(libs.androidx.hilt.navigation.compose)
 
+    // Networking
+    implementation(libs.ktor.client.core)
+    implementation(libs.ktor.client.okhttp)
+    implementation(libs.ktor.client.android)
+    implementation(libs.ktor.client.content-negotiation)
+    implementation(libs.ktor.client.serialization)
+    implementation(libs.ktor.client.logging)
+    implementation(libs.kotlinx.serialization.json)
+
     implementation(libs.hilt.android)
     ksp(libs.hilt.compiler)
 
     implementation(libs.coil.compose)
     implementation(libs.androidx.compose.material.icons.core)
     implementation(libs.kotlinx.collections.immutable)
+
+    // Paging
+    implementation(libs.androidx.paging.runtime)
+    implementation(libs.androidx.paging.compose)
+    implementation(libs.androidx.paging.common)
 
     testImplementation(libs.junit)
     testImplementation(libs.mockk)
