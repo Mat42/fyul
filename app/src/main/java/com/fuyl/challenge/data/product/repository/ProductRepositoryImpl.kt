@@ -5,10 +5,8 @@ import androidx.paging.PagingConfig
 import androidx.paging.PagingData
 import com.fuyl.challenge.core.network.api.DummyProductApi
 import com.fuyl.challenge.data.product.paging.ProductPagingSource
-import com.fuyl.challenge.domain.model.Product
 import com.fuyl.challenge.domain.product.model.Product
 import com.fuyl.challenge.domain.product.repository.ProductRepository
-import com.fuyl.challenge.domain.repository.ProductRepository
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
