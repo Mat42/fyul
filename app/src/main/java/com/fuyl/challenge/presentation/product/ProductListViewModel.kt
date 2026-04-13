@@ -2,11 +2,14 @@ package com.fuyl.challenge.presentation.product
 
 import androidx.lifecycle.viewModelScope
 import androidx.paging.cachedIn
+import androidx.paging.map
 import com.fuyl.challenge.core.common.base.BaseViewModel
 import com.fuyl.challenge.domain.product.usecase.GetProductsUseCase
+import com.fuyl.challenge.presentation.product.mapper.toUiModel
 import com.fuyl.challenge.presentation.product.model.ProductListEvent
 import com.fuyl.challenge.presentation.product.model.ProductListState
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.flow.map
 import javax.inject.Inject
 
 @HiltViewModel
@@ -28,7 +31,13 @@ class ProductListViewModel @Inject constructor(
 
     private fun loadProducts() {
         updateState { 
-            it.copy(products = getProductsUseCase().cachedIn(viewModelScope))
+            it.copy(
+                products = getProductsUseCase()
+                    .map { pagingData ->
+                        pagingData.map { product -> product.toUiModel() }
+                    }
+                    .cachedIn(viewModelScope)
+            )
         }
     }
 }

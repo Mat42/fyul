@@ -30,7 +30,6 @@ class ProductPagingSource(
         return when (result) {
             is Result.Success -> {
                 val response = result.data
-                Log.d("ProductPagingSource", "Response: $response")
                 val products = response.products.map { it.toDomain() }
                 LoadResult.Page(
                     data = products,

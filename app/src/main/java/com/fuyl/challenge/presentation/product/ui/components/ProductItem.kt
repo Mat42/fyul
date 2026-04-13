@@ -17,11 +17,11 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
-import com.fuyl.challenge.domain.product.model.Product
+import com.fuyl.challenge.presentation.product.model.ProductUiModel
 
 @Composable
 fun ProductItem(
-    product: Product,
+    product: ProductUiModel,
     modifier: Modifier = Modifier
 ) {
     Card(
