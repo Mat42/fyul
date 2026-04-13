@@ -1,4 +1,4 @@
-# Fuyl Product Challenge 🚀
+# Fyul Product Challenge 🚀
 
 A modern Android application demonstrating Clean Architecture, Jetpack Compose, and Paging 3, built with a focus on scalability, maintainability, and testability.
 
